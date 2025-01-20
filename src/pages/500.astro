@@ -1,4 +1,7 @@
 ---
+import Main from "@/components/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+
 interface Props {
   error: unknown;
 }
@@ -6,4 +9,10 @@ interface Props {
 const { error } = Astro.props;
 ---
 
-<div>{error instanceof Error ? error.message : "Unknown error"}</div>
+<Layout title="Unknown Error">
+  <Main title={error instanceof Error ? error.message : "500 - Unknown error"}>
+    <a href="/">
+      <p class="underline md:no-underline md:hover:underline">Go home</p>
+    </a>
+  </Main>
+</Layout>

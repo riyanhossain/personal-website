@@ -86,11 +86,11 @@ const {
     <ClientRouter />
   </head>
   <body
-    class={`font-lexend antialiased text-black bg-white min-h-screen font-normal flex flex-col ${cn(
+    class={`font-lexend antialiased text-black dark:text-white transition-colors duration-500 bg-white dark:bg-black min-h-screen font d-normal flex flex-col ${cn(
       className,
     )}`}
   >
-    <Header client:load />
+    <Header client:only />
     <main class="w-full max-w-2xl mx-auto px-5 lg:px-6 flex-grow">
       <slot />
     </main>

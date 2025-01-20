@@ -1,7 +1,7 @@
 import ScrambleHover from "@/components/ScambleHover";
 import { Button } from "@/components/ui/button";
-import React from "react";
-import { Languages, Menu, Sun } from "lucide-react";
+import { Languages, Menu } from "lucide-react";
+import ModeSwitcher from "@/components/ModeSwitcher";
 
 export default function Header() {
   return (
@@ -14,9 +14,7 @@ export default function Header() {
           <Languages className="!size-5 min-w-6" />
         </Button>
 
-        <Button size="icon" variant="icon">
-          <Sun className="!size-5 min-w-6" />
-        </Button>
+        <ModeSwitcher />
 
         <Button size="icon" variant="icon">
           <Menu className="!size-5 min-w-6" />

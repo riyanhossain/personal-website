@@ -8,30 +8,32 @@ import { Icon } from "astro-icon/components";
 ---
 
 <div
-  class="not-prose border-2 rounded-lg p-5 shadow cursor-pointer transition-all inline-block space-y-4"
+  class="not-prose border-2 rounded-lg p-5 shadow cursor-pointer transition-all inline-block space-y-2 md:space-y-4"
 >
-  <div class="flex items-center justify-between">
+  <div
+    class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-4"
+  >
     <div class="flex itxems-center gap-x-4">
       <Image
-        class="size-16 min-w-16 rounded-full object-cover"
+        class="size-10 min-w-10 md:size-16 md:min-w-16 rounded-full object-cover border-2 dark:border-gray-300"
         src={Riyan}
         alt="Avatar"
         loading="eager"
       />
       <div class="space-y-2">
-        <h6 class="text-lg font-semibold">Riyan Hossain</h6>
-        <p class="text-sm text-gray-500">Software Engineer</p>
+        <h6 class="text-sm md:text-lg font-semibold">Riyan Hossain</h6>
+        <p class="text-xs md:text-sm text-gray-500">Software Engineer</p>
       </div>
     </div>
 
     <!-- socials -->
-    <div class="flex gap-x-6">
+    <div class="flex gap-x-2 md:gap-x-6">
       {
         SocialItems.map((item: SocialItem) => (
           <a href={item.link} target="_blank" rel="noopener noreferrer">
             <TooltipComp text={item.title} client:load>
               <Icon
-                class="!size-6 !min-w-6"
+                class="!size-4 !min-w-4 md:!size-6 md:!min-w-6"
                 name={item.icon}
                 title={item.title}
               />
@@ -41,7 +43,7 @@ import { Icon } from "astro-icon/components";
       }
     </div>
   </div>
-  <p class="text-base">
+  <p class="text-xs xs:text-sm md:text-base">
     👋 Hi, I’m a passionate Full Stack Web Developer with expertise in crafting
     dynamic and responsive websites. Let’s collaborate to create websites that
     are not only functional but also visually stunning and lightning-fast. Ready

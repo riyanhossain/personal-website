@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import { getEntry, render } from "astro:content";
 import Main from "@/components/Main.astro";
+import Prose from "@/components/Prose.astro";
 
 // Prerender to cache video api result
 export const prerender = true;
@@ -14,8 +15,8 @@ const { Content } = await render(md);
 
 <Layout title="Home">
   <Main title="Home">
-    <div class="prose">
+    <Prose>
       <Content />
-    </div>
+    </Prose>
   </Main>
 </Layout>
