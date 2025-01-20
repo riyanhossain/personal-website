@@ -1,17 +1,22 @@
 ---
 import { SocialItems } from "@/config";
 import type { SocialItem } from "@/types";
+import { TooltipComp } from "@/components/TooltipComp";
+import Image from "astro/components/Image.astro";
+import Riyan from "src/assets/riyanhossain.jpg";
+import { Icon } from "astro-icon/components";
 ---
 
 <div
-  class="not-prose border-2 hover:border-black rounded-lg p-5 shadow-xs cursor-pointer transition-all inline-block space-y-4"
+  class="not-prose border-2 rounded-lg p-5 shadow cursor-pointer transition-all inline-block space-y-4"
 >
   <div class="flex items-center justify-between">
-    <div class="flex items-center gap-x-4">
-      <img
+    <div class="flex itxems-center gap-x-4">
+      <Image
         class="size-16 min-w-16 rounded-full object-cover"
-        src="/riyanhossain.jpg"
+        src={Riyan}
         alt="Avatar"
+        loading="eager"
       />
       <div class="space-y-2">
         <h6 class="text-lg font-semibold">Riyan Hossain</h6>
@@ -20,11 +25,17 @@ import type { SocialItem } from "@/types";
     </div>
 
     <!-- socials -->
-    <div class="flex gap-x-4">
+    <div class="flex gap-x-6">
       {
         SocialItems.map((item: SocialItem) => (
           <a href={item.link} target="_blank" rel="noopener noreferrer">
-            <img class="size-6" src={item.icon} alt={item.title} />
+            <TooltipComp text={item.title} client:load>
+              <Icon
+                class="!size-6 !min-w-6"
+                name={item.icon}
+                title={item.title}
+              />
+            </TooltipComp>
           </a>
         ))
       }

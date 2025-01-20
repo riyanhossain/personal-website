@@ -3,7 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import "@/styles/global.css";
 import * as constants from "@/constants";
 import Footer from "@/components/Footer.astro";
-import Header from "@/components/Header.astro";
+import Header from "@/components/Header";
 import { cn } from "@/lib/utils";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -18,7 +18,7 @@ type Props = {
 const {
   title = constants.SITE_TITLE,
   description = constants.SITE_DESCRIPTION,
-  image = "/riyanhossain.jpg",
+  image = "src/assets/riyanhossain.jpg",
   className = "",
 } = Astro.props;
 ---
@@ -90,7 +90,7 @@ const {
       className,
     )}`}
   >
-    <Header />
+    <Header client:load />
     <main class="w-full max-w-2xl mx-auto px-5 lg:px-6 flex-grow">
       <slot />
     </main>

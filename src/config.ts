@@ -28,22 +28,22 @@ export const HeaderItems = [
 export const SocialItems = [
   {
     link: GITHUB_LINK,
-    icon: "github",
+    icon: "ic-github",
     title: "GitHub",
   },
   {
     link: TWITTER_LINK,
-    icon: "twitter",
+    icon: "ic-twitter",
     title: "Twitter",
   },
   {
     link: LINKEDIN_LINK,
-    icon: "linkedin",
+    icon: "ic-linkedin",
     title: "LinkedIn",
   },
   {
     link: EMAIL_LINK,
-    icon: "email",
+    icon: "ic-mail",
     title: "Email",
-  },
+  }
 ] as SocialItem[];

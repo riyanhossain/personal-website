@@ -9,11 +9,13 @@ import mdx from "@astrojs/mdx";
 
 import sitemap from "@astrojs/sitemap";
 
-import partytown from "@astrojs/partytown";
+// import partytown from "@astrojs/partytown";
 
 import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,11 +37,15 @@ export default defineConfig({
   },
   integrations: [
     react(),
-    tailwind(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
     mdx({
       extendMarkdownConfig: true,
-    }),
+    }), // partytown(),
     sitemap(),
-    // partytown(),
+    icon({
+      iconDir: "src/assets/icons",
+    }),
   ],
 });
