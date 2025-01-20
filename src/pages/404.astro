@@ -1,13 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-// import Main from "@/components/Main.astro";
+import Main from "@/components/Main.astro";
 import { SITE_TITLE } from "@/constants";
 ---
 
 <Layout title={`Page Not Found | ${SITE_TITLE}`}>
-  <!-- <Main title="404 - Page Not Found"> -->
+  <Main title="404 - Page Not Found">
     <a href="/">
       <p class="underline md:no-underline md:hover:underline">Go home</p>
     </a>
-  <!-- </Main> -->
+  </Main>
 </Layout>

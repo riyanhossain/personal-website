@@ -1,0 +1,39 @@
+---
+import { SocialItems } from "@/config";
+import type { SocialItem } from "@/types";
+---
+
+<div
+  class="not-prose border-2 hover:border-black rounded-lg p-5 shadow-xs cursor-pointer transition-all inline-block space-y-4"
+>
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-x-4">
+      <img
+        class="size-16 min-w-16 rounded-full object-cover"
+        src="/riyanhossain.jpg"
+        alt="Avatar"
+      />
+      <div class="space-y-2">
+        <h6 class="text-lg font-semibold">Riyan Hossain</h6>
+        <p class="text-sm text-gray-500">Software Engineer</p>
+      </div>
+    </div>
+
+    <!-- socials -->
+    <div class="flex gap-x-4">
+      {
+        SocialItems.map((item: SocialItem) => (
+          <a href={item.link} target="_blank" rel="noopener noreferrer">
+            <img class="size-6" src={item.icon} alt={item.title} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <p class="text-base">
+    👋 Hi, I’m a passionate Full Stack Web Developer with expertise in crafting
+    dynamic and responsive websites. Let’s collaborate to create websites that
+    are not only functional but also visually stunning and lightning-fast. Ready
+    to start? Let’s build something amazing! 🚀
+  </p>
+</div>

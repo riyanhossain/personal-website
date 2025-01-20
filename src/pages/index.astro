@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getEntry } from "astro:content";
-
+import { getEntry, render } from "astro:content";
+import Main from "@/components/Main.astro";
 
 // Prerender to cache video api result
 export const prerender = true;
@@ -9,9 +9,13 @@ export const prerender = true;
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 const md = await getEntry("pages", "index");
 if (!md) throw new Error("no index page found");
-const { Content } = await md.render();
+const { Content } = await render(md);
 ---
 
-<Layout>
-  <Content />
+<Layout title="Home">
+  <Main title="Home">
+    <div class="prose">
+      <Content />
+    </div>
+  </Main>
 </Layout>

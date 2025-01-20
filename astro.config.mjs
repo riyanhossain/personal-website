@@ -10,6 +10,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
 import partytown from "@astrojs/partytown";
+
 import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -39,6 +40,6 @@ export default defineConfig({
       extendMarkdownConfig: true,
     }),
     sitemap(),
-    partytown(),
+    // partytown(),
   ],
 });

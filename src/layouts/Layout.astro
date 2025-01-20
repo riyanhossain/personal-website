@@ -2,13 +2,24 @@
 import { ClientRouter } from "astro:transitions";
 import "@/styles/global.css";
 import * as constants from "@/constants";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import { cn } from "@/lib/utils";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+type Props = {
+  title?: string;
+  description?: string;
+  image?: string;
+  className?: string;
+};
 
 const {
   title = constants.SITE_TITLE,
   description = constants.SITE_DESCRIPTION,
   image = "/riyanhossain.jpg",
+  className = "",
 } = Astro.props;
 ---
 
@@ -18,7 +29,7 @@ const {
     <!-- Global Metadata -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Font preloads -->
@@ -35,6 +46,13 @@ const {
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap"
+      rel="stylesheet"
     />
 
     <!-- Canonical URL -->
@@ -67,7 +85,15 @@ const {
       data-cf-beacon='{"token": "84933259d875475985c66180f81b73bf"}'></script> -->
     <ClientRouter />
   </head>
-  <body class="font-mon antialiased text-black bg-white">
-    <slot />
+  <body
+    class={`font-lexend antialiased text-black bg-white min-h-screen font-normal flex flex-col ${cn(
+      className,
+    )}`}
+  >
+    <Header />
+    <main class="w-full max-w-2xl mx-auto px-5 lg:px-6 flex-grow">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
