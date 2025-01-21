@@ -93,7 +93,9 @@ const {
   >
     <Background client:load>
       <Navigation client:load />
-      <Header client:load />
+      <div transition:name="Header">
+        <Header client:load />
+      </div>
       <main class="w-full max-w-2xl mx-auto px-5 lg:px-6 flex-grow z-10">
         <slot />
       </main>
