@@ -1,37 +1,38 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
-
-type Mode = "light" | "dark";
+import { useStore } from "@nanostores/react";
+import { isDark } from "@/store/global";
 
 export default function ModeSwitcher() {
-  const theme = (): Mode => {
-    const localStorageTheme = localStorage?.getItem("theme") ?? "";
-    if (["dark", "light"].includes(localStorageTheme)) {
-      return localStorageTheme as Mode;
+  const theme = (): boolean => {
+    const localStorageTheme = localStorage?.getItem("isDark") ?? "";
+    if (["true", "false"].includes(localStorageTheme)) {
+      return JSON.parse(localStorageTheme);
     }
     if (window.matchMedia("(prefers-color-scheme: reduce)").matches) {
-      return "dark";
+      return true;
     }
-    return "light";
+    return false;
   };
 
-  const [mode, setMode] = React.useState<Mode>(theme);
-  const toggleMode = () => setMode(mode === "light" ? "dark" : "light");
+  const $isDark = useStore(isDark);
+  const toggleMode = () => isDark.set(!$isDark);
 
   React.useEffect(() => {
-    document.documentElement.setAttribute("class", mode);
+    isDark.set(theme());
+  }, []);
 
-    window.localStorage.setItem("theme", mode);
-  }, [mode]);
+  React.useEffect(() => {
+    document.documentElement.setAttribute("class", $isDark ? "dark" : "");
+    window.localStorage.setItem("isDark", $isDark ? "true" : "false");
+  }, [$isDark]);
+
+  const Comp = $isDark === true ? Moon : Sun;
 
   return (
     <Button onClick={toggleMode} size="icon" variant="icon">
-      {mode === "dark" ? (
-        <Sun className="!size-5 min-w-6" />
-      ) : (
-        <Moon className="!size-5 min-w-6" />
-      )}
+      <Comp className="!size-5 min-w-5" />
     </Button>
   );
 }

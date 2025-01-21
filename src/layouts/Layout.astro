@@ -5,7 +5,10 @@ import * as constants from "@/constants";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header";
 import { cn } from "@/lib/utils";
+import Navigation from "@/components/Navigation";
+import Background from "@/components/Background";
 
+// Canonical URL
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 type Props = {
@@ -23,77 +26,78 @@ const {
 } = Astro.props;
 ---
 
-<!doctype html>
 <html lang="en">
-  <head>
-    <!-- Global Metadata -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+  <!-- Global Metadata -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
 
-    <!-- Font preloads -->
-    <link
-      rel="preload"
-      href="/fonts/BerkeleyMonoVariable-Regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="/fonts/BerkeleyMonoVariable-Italic.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
+  <!-- Font preloads -->
+  <link
+    rel="preload"
+    href="/fonts/BerkeleyMonoVariable-Regular.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="preload"
+    href="/fonts/BerkeleyMonoVariable-Italic.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href={canonicalURL} />
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalURL} />
 
-    <!-- Primary Meta Tags -->
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.url)} />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(image, Astro.url)} />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={Astro.url} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-    <!-- Cloudflare Web Analytics -->
-    <!-- <script
+  <!-- Cloudflare Web Analytics -->
+  <!-- <script
       is:inline
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
       data-cf-beacon='{"token": "84933259d875475985c66180f81b73bf"}'></script> -->
-    <ClientRouter />
-  </head>
+  <ClientRouter />
+
   <body
-    class={`font-lexend antialiased text-black dark:text-white transition-colors duration-500 bg-white dark:bg-black min-h-screen font d-normal flex flex-col ${cn(
+    class={`font-lexend antialiased text-black dark:text-white transition-colors duration-500 bg-white dark:bg-black min-h-screen font-normal  ${cn(
       className,
     )}`}
   >
-    <Header client:only />
-    <main class="w-full max-w-2xl mx-auto px-5 lg:px-6 flex-grow">
-      <slot />
-    </main>
-    <Footer />
+    <Background client:load>
+      <Navigation client:load />
+      <Header client:load />
+      <main class="w-full max-w-2xl mx-auto px-5 lg:px-6 flex-grow z-10">
+        <slot />
+      </main>
+      <Footer />
+    </Background>
   </body>
 </html>
