@@ -1,0 +1,27 @@
+---
+import { type TechStack } from "@/types";
+import { TechStacks } from "@/config";
+import { Icon } from "astro-icon/components";
+import { TooltipComp } from "@/components/TooltipComp";
+---
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-2">
+  {
+    TechStacks.map((stack: TechStack) => (
+      <div class="border rounded p-4">
+        <h3 class="font-medium mt-0">{stack.title}</h3>
+        <div class="flex flex-wrap gap-2">
+          {stack.skills.map((skill) => (
+            <TooltipComp text={skill.name} client:load>
+              <Icon
+                name={skill.icon}
+                title={skill.name}
+                class="!size-5 !min-w-5 md:!size-6 md:!min-w-6"
+              />
+            </TooltipComp>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</section>

@@ -8,3 +8,14 @@ export type SocialItem = {
   icon: string;
   title: string;
 };
+
+export type Stack = {
+  name: string;
+  icon: string;
+};
+
+export type TechStack = {
+  title: string;
+  icon: string;
+  skills: Stack[];
+};
