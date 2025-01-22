@@ -87,122 +87,126 @@ export const TechStacks = [
       },
     ],
   },
-  // {
-  //   title: "Backend",
-  //   icon: "ic-backend",
-  //   skills: [
-  //     {
-  //       name: "Node JS",
-  //       icon: "ic-nodejs",
-  //     },
-  //     {
-  //       name: "Express",
-  //       icon: "ic-express",
-  //     },
-  //     {
-  //       name: "Hono",
-  //       icon: "ic-hono",
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: "DevOps",
-  //   icon: "ic-devops",
-  //   items: [
-  //     {
-  //       name: "Docker",
-  //       icon: "ic-docker",
-  //     },
-  //     {
-  //       name: "Git",
-  //       icon: "ic-git",
-  //     },
-  //     {
-  //       name: "GitHub Actions",
-  //       icon: "ic-github",
-  //     },
-  //     {
-  //       name: "CI/CD",
-  //       icon: "ic-cicd",
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: "Database",
-  //   icon: "ic-database",
-  //   skills: [
-  //     {
-  //       name: "MongoDB",
-  //       icon: "ic-mongodb",
-  //     },
-  //     {
-  //       name: "MySQL",
-  //       icon: "ic-mysql",
-  //     },
-  //     {
-  //       name: "PostgreSQL",
-  //       icon: "ic-postgresql",
-  //     },
-  //     {
-  //       name: "Drizzle",
-  //       icon: "ic-drizzle",
-  //     },
-  //     {
-  //       name: "prisma",
-  //       icon: "ic-prisma",
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: "Tools",
-  //   icon: "ic-tools",
-  //   skills: [
-  //     {
-  //       name: "VS Code",
-  //       icon: "ic-vscode",
-  //     },
-  //     {
-  //       name: "Postman",
-  //       icon: "ic-postman",
-  //     },
-  //     {
-  //       name: "Figma",
-  //       icon: "ic-figma",
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: "Others",
-  //   icon: "ic-others",
-  //   skills: [
-  //     {
-  //       name: "GraphQL",
-  //       icon: "ic-graphql",
-  //     },
-  //     {
-  //       name: "REST API",
-  //       icon: "ic-restapi",
-  //     },
-  //     {
-  //       name: "Supabase",
-  //       icon: "ic-supabase",
-  //     },
-  //     {
-  //       name: "Convex",
-  //       icon: "ic-convex",
-  //     },
-  //     {
-  //       name: "Storybook",
-  //       icon: "ic-storybook",
-  //     },
-  //     {
-  //       name: "StoryBlok",
-  //       icon: "ic-storyblok",
-  //     },
-  //     {
-  //       name: "Strapi",
-  //       icon: "ic-strapi",
-  //     },
-  //   ],
-  // },
+  {
+    title: "Backend",
+    icon: "ic-backend",
+    skills: [
+      {
+        name: "Node JS",
+        icon: "ic-nodejs",
+      },
+      {
+        name: "ExpressJS",
+        icon: "ic-express",
+      },
+      {
+        name: "Hono",
+        icon: "ic-hono",
+      },
+    ],
+  },
+  {
+    title: "Database",
+    icon: "ic-database",
+    skills: [
+      {
+        name: "MongoDB",
+        icon: "ic-mongodb",
+      },
+      {
+        name: "MySQL",
+        icon: "ic-mysql",
+      },
+      {
+        name: "PostgreSQL",
+        icon: "ic-postgres",
+      },
+      {
+        name: "mongoose",
+        icon: "ic-mongoose",
+      },
+      // {
+      //   name: "SqLite",
+      //   icon: "ic-sqlite",
+      // },
+      // {
+      //   name: "Drizzle",
+      //   icon: "ic-drizzle",
+      // },
+      {
+        name: "prisma",
+        icon: "ic-prisma",
+      },
+    ],
+  },
+  {
+    title: "DevOps",
+    icon: "ic-devops",
+    skills: [
+      {
+        name: "Docker",
+        icon: "ic-docker",
+      },
+      {
+        name: "AWS",
+        icon: "ic-aws",
+      },
+      {
+        name: "Git",
+        icon: "ic-git",
+      },
+    ],
+  },
+  {
+    title: "Tools",
+    icon: "ic-tools",
+    skills: [
+      {
+        name: "VS Code",
+        icon: "ic-vscode",
+      },
+      {
+        name: "Postman",
+        icon: "ic-postman",
+      },
+      {
+        name: "Figma",
+        icon: "ic-figma",
+      },
+    ],
+  },
+  {
+    title: "Others",
+    icon: "ic-others",
+    skills: [
+      {
+        name: "GraphQL",
+        icon: "ic-graphql",
+      },
+      // {
+      //   name: "REST API",
+      //   icon: "ic-restapi",
+      // },
+      {
+        name: "Supabase",
+        icon: "ic-supabase",
+      },
+      {
+        name: "Convex",
+        icon: "ic-convex",
+      },
+      {
+        name: "Storybook",
+        icon: "ic-storybook",
+      },
+      {
+        name: "StoryBlok",
+        icon: "ic-storyblok",
+      },
+      {
+        name: "Strapi",
+        icon: "ic-strapi",
+      },
+    ],
+  },
 ] as TechStack[];
