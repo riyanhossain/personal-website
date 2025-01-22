@@ -22,6 +22,6 @@ export type TechStack = {
 
 export type Page = {
   params: {
-    slug: string;
+    slug: string | undefined;
   };
 };

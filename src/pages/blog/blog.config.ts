@@ -6,4 +6,9 @@ export const Pages: Page[] = [
       slug: "my-first-blog",
     },
   },
+  {
+    params: {
+      slug: undefined,
+    },
+  },
 ];

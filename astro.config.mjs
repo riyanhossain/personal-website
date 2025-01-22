@@ -17,9 +17,12 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 import icon from "astro-icon";
 
+// import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://riyan-one.vercel.app/",
+
   markdown: {
     remarkPlugins: [remarkToc],
     rehypePlugins: [
@@ -35,6 +38,7 @@ export default defineConfig({
       ],
     ],
   },
+
   integrations: [
     react(),
     tailwind({
@@ -48,4 +52,11 @@ export default defineConfig({
       iconDir: "src/assets/icons",
     }),
   ],
+
+  output: "static",
+  // adapter: vercel({
+  //   webAnalytics: {
+  //     enabled: true,
+  //   },
+  // }),
 });
