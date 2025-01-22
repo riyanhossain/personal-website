@@ -1,0 +1,31 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { Tags } from "@/pages/blog/tags/tag.config";
+import Main from "@/components/Main.astro";
+
+const blogs = await getCollection("blog");
+
+// return a object array with the tag and the number of blogs with that tag
+const tags = Tags.map((tag) => ({
+  tag,
+  count: blogs.filter((blog) => blog.data.tags?.includes(tag)).length,
+}));
+---
+
+<Layout title="Tags">
+  <Main title="Blog - Tags">
+    <ul class="flex flex-wrap gap-4">
+      {
+        tags.map((tag) => (
+          <li>
+            <a href={`/blog/tags/${tag.tag}`} class=" hover:underline">
+              {tag.tag}
+              {tag.count ? ` (${tag.count})` : ""}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Main>
+</Layout>

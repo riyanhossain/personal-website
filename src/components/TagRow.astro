@@ -1,0 +1,21 @@
+---
+import { type CollectionEntry } from "astro:content";
+
+type Props = {
+  tags: CollectionEntry<"blog">["data"]["tags"];
+};
+
+const { tags } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-2">
+  {
+    tags?.map((tag) => (
+      <a href={`/blog/tags/${tag}`} class="block">
+        <div class="text-sm text-semibold py-1 px-1.5 rounded-full border hover:bg-black/80 hover:text-white/80">
+          {tag}
+        </div>
+      </a>
+    ))
+  }
+</div>

@@ -1,0 +1,30 @@
+---
+import { type CollectionEntry } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
+import TagRow from "@/components/TagRow.astro";
+
+type Props = {
+  blog: CollectionEntry<"blog">;
+  tag?: string | null | undefined;
+};
+
+const {
+  blog: {
+    data: { title, description, pubDate, tags },
+    slug,
+  },
+  tag,
+} = Astro.props;
+---
+
+<a href=`/blog/${slug}` class="block">
+  <div class="border rounded p-4 bg-white/50 dark:bg-black/50 space-y-4">
+    <p class="text-lg font-semibold line-clamp-2">{title}</p>
+
+    <div class="flex items-center justify-between gap-x-2">
+      <p class="text-xs sm:text-sm"><FormattedDate date={pubDate} /></p>
+
+      <TagRow tags={tags} />
+    </div>
+  </div>
+</a>

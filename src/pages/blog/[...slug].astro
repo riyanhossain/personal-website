@@ -1,0 +1,30 @@
+---
+import type { GetStaticPaths } from "astro";
+import BlogLayout from "@/layouts/BlogLayout.astro";
+import { getEntry } from "astro:content";
+import { Pages } from "@/pages/blog/blog.config";
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect("/404");
+}
+
+const blog = await getEntry("blog", slug);
+
+if (!blog) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await blog.render();
+
+export const getStaticPaths = (() => {
+  return Pages;
+}) satisfies GetStaticPaths;
+---
+
+<BlogLayout {...blog.data}>
+  <Content />
+</BlogLayout>

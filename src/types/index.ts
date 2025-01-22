@@ -19,3 +19,9 @@ export type TechStack = {
   icon: string;
   skills: Stack[];
 };
+
+export type Page = {
+  params: {
+    slug: string;
+  };
+};

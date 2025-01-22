@@ -1,0 +1,30 @@
+---
+import type { GetStaticPaths } from "astro";
+import { Tags } from "@/pages/blog/tags/tag.config";
+import Layout from "@/layouts/Layout.astro";
+import BlogList from "@/components/BlogList.astro";
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect("/blog/tags");
+}
+
+export const getStaticPaths = (() => {
+  return Tags.map((tag) => ({
+    params: {
+      slug: tag,
+    },
+  }));
+}) satisfies GetStaticPaths;
+---
+
+<Layout title={`Tag: ${slug}`}>
+  <h2 class="text-2xl font-bold" transition:name="main title">Blog - {slug}</h2>
+  <div class="h-2 w-full"></div>
+  <a href="/blog/tags">See all tags</a>
+  <div class="h-[24px] w-full"></div>
+  <hr />
+  <div class="h-[24px] w-full"></div>
+  <BlogList tag={slug} />
+</Layout>

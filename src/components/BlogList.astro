@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import BlogCard from "@/components/BlogCard.astro";
+
+type Props = {
+  limit?: number;
+  tag?: string | null;
+};
+
+const { limit, tag } = Astro.props;
+
+const blogs = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const filteredBlogs = tag
+  ? blogs.filter((blog) => blog.data.tags?.includes(tag))
+  : blogs;
+
+const blogList = limit ? filteredBlogs.slice(0, limit) : filteredBlogs;
+---
+
+<ul class="not-prose grid grid-cols-1 gap-4">
+  {
+    blogList.map((blog) => (
+      <li>
+        <BlogCard {blog} />
+      </li>
+    ))
+  }
+</ul>

@@ -151,16 +151,16 @@ export const TechStacks = [
         name: "AWS",
         icon: "ic-aws",
       },
-      {
-        name: "Git",
-        icon: "ic-git",
-      },
     ],
   },
   {
     title: "Tools",
     icon: "ic-tools",
     skills: [
+      {
+        name: "Git",
+        icon: "ic-git",
+      },
       {
         name: "VS Code",
         icon: "ic-vscode",

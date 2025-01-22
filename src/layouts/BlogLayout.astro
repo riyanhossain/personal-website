@@ -1,0 +1,36 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { type CollectionEntry } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
+import TagRow from "@/components/TagRow.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, tags } = Astro.props;
+---
+
+<Layout title={`${title} - Blog`} description={description}>
+  <h2 class="text-2xl font-semibold" transition:name={title}>{title}</h2>
+  <div class="h-2"></div>
+  <FormattedDate date={pubDate} />
+
+  {
+    updatedDate && (
+      <>
+        <div class="h-2" />
+        <div>
+          Last updated:
+          <FormattedDate date={updatedDate} />
+        </div>
+      </>
+    )
+  }
+  <div class="h-2"></div>
+  <TagRow tags={tags} />
+  <div class="h-6"></div>
+  <hr />
+  <div class="h-6"></div>
+  <article class="prose text-black dark:text-white">
+    <slot />
+  </article>
+</Layout>
