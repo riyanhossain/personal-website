@@ -11,7 +11,7 @@ export const getStaticPaths = (async ({ paginate }) => {
       page: page.params.slug,
     })),
   ];
-  return paginate(pages, { pageSize: 1 });
+  return paginate(pages);
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;

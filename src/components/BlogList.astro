@@ -13,8 +13,6 @@ const blogs = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-console.log(blogs.length);
-
 const filteredBlogs = tag
   ? blogs.filter((blog) => blog.data.tags?.includes(tag))
   : blogs;

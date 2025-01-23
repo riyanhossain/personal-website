@@ -13,7 +13,7 @@ export const HeaderItems = [
   },
   {
     title: "Blog",
-    link: "/blog/pages/1",
+    link: "/blog/1",
   },
   {
     title: "About",

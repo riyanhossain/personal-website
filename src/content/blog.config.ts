@@ -8,7 +8,7 @@ export const Pages: Page[] = [
   },
   {
     params: {
-      slug: "my-first-blog-1",
+      slug: "my-first-blog-b",
     },
   },
   {
