@@ -1,0 +1,23 @@
+---
+import { getEntry } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import { render } from "astro:content";
+import Prose from "@/components/Prose.astro";
+import Main from "@/components/Main.astro";
+
+const md = await getEntry("pages", "about");
+
+if (!md) {
+  throw new Error("no about page found");
+}
+
+const { Content } = await render(md);
+---
+
+<Layout title="About">
+  <Main title="About">
+    <Prose>
+      <Content />
+    </Prose>
+  </Main>
+</Layout>
