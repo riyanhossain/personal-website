@@ -1,0 +1,14 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+import { Projects } from "@/config";
+---
+
+<ul class="grid grid-cols-1 gap-4">
+  {
+    Projects.map((project) => (
+      <li>
+        <ProjectCard {...project} />
+      </li>
+    ))
+  }
+</ul>

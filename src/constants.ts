@@ -45,22 +45,3 @@ export const JS_KEYWORDS = [
   "yield",
   "await",
 ];
-
-export const HearderItems = [
-  {
-    title: "Projects",
-    link: "/projects",
-  },
-  {
-    title: "Blog",
-    link: "/blog",
-  },
-  {
-    title: "About",
-    link: "/about",
-  },
-  {
-    title: "Contact",
-    link: "/contact",
-  },
-];

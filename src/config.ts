@@ -210,3 +210,29 @@ export const TechStacks = [
     ],
   },
 ] as TechStack[];
+
+export const Projects = [
+  {
+    title: "Personal Website",
+    description: "My personal portfolio website built with Astro and React.",
+    techStacks: [
+      {
+        name: "Astro",
+        icon: "ic-astro",
+      },
+      {
+        name: "React",
+        icon: "ic-react",
+      },
+      {
+        name: "TailwindCSS",
+        icon: "ic-tailwindcss",
+      },
+      {
+        name: "TypeScript",
+        icon: "ic-typescript",
+      },
+    ],
+    link: "personal-website",
+  },
+];

@@ -25,3 +25,10 @@ export type Page = {
     slug: string | undefined;
   };
 };
+
+export type Project = {
+  title: string;
+  description: string;
+  techStacks: Stack[];
+  link: string;
+};

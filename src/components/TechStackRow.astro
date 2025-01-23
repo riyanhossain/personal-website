@@ -1,0 +1,12 @@
+---
+import type { Stack } from "@/types";
+import { TooltipComp } from "@/components/TooltipComp";
+import { Icon } from "astro-icon/components";
+type Props = Stack;
+
+const { name, icon } = Astro.props;
+---
+
+<TooltipComp text={name} client:load>
+  <Icon name={icon} title={name} class="!size-6 !min-w-6" />
+</TooltipComp>

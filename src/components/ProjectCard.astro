@@ -1,0 +1,61 @@
+---
+import TechStackRow from "@/components/TechStackRow.astro";
+import type { Project } from "@/types";
+import { starSchema } from "@/schema";
+import { Star } from "lucide-react";
+
+type Props = Project;
+
+const github = "https://github.com/riyanhossain/";
+
+const { title, description, link, techStacks } = Astro.props;
+
+let starNumber: number | null = null;
+
+if (link) {
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/riyanhossain/${link}`,
+      {
+        headers: {
+          Authorization: `token ${process.env.GITHUB_TOKEN}`,
+          "User-Agent": "riyanhossain",
+        },
+      },
+    );
+    const data = starSchema.parse(await res.json());
+
+    starNumber = data.stargazers_count;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+console.log(starNumber);
+---
+
+<a href={`${github}${link}`} target="_blank" class="cursor-pointer not-prose">
+  <div
+    class="border rounded p-4 bg-white/50 dark:bg-black/50 flex flex-col gap-y-4 relative"
+  >
+    {
+      starNumber !== null && (
+        <div class="absolute top-2 right-4 flex items-center gap-x-1">
+          <p class="text-sm">{starNumber}</p>{" "}
+          <Star client:load className="!size-4" />
+        </div>
+      )
+    }
+    <div class="space-y-4">
+      <p class="text-lg font-semibold line-clamp-2">{title}</p>
+
+      <div class="flex items-center justify-between gap-x-2">
+        <p class="text-xs sm:text-sm">{description}</p>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        {techStacks.map((stack) => <TechStackRow {...stack} />)}
+      </div>
+    </div>
+  </div>
+</a>

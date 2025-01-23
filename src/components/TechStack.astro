@@ -1,8 +1,7 @@
 ---
 import { type TechStack } from "@/types";
 import { TechStacks } from "@/config";
-import { Icon } from "astro-icon/components";
-import { TooltipComp } from "@/components/TooltipComp";
+import TechStackRow from "@/components/TechStackRow.astro";
 ---
 
 <section class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -12,13 +11,7 @@ import { TooltipComp } from "@/components/TooltipComp";
         <h3 class="font-medium mt-0">{stack.title}</h3>
         <div class="flex flex-wrap gap-2">
           {stack.skills.map((skill) => (
-            <TooltipComp text={skill.name} client:load>
-              <Icon
-                name={skill.icon}
-                title={skill.name}
-                class="!size-6 !min-w-6"
-              />
-            </TooltipComp>
+            <TechStackRow {...skill} />
           ))}
         </div>
       </div>
