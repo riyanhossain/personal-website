@@ -1,7 +1,7 @@
 ---
 title: "My Journey Building My First Personal Website b"
 description: "At last im able to develop my personal site"
-pubDate: "23 Jan 2025"
+pubDate: "24 Jan 2025"
 updatedDate: "23 Jan 2025"
 tags: ["Astro", "React"]
 ---

@@ -21,6 +21,13 @@ const blogs = await Promise.all(
     return await getEntry("blog", page.page ?? "");
   }),
 );
+
+const sortedBlogs = blogs.sort((a, b) => {
+  if (!a || !b) {
+    return 0;
+  }
+  return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+});
 ---
 
 <div>
@@ -32,7 +39,7 @@ const blogs = await Promise.all(
     <hr />
     <div class="h-[24px] w-full"></div>
     <ul class="not-prose grid grid-cols-1 gap-4">
-      {blogs.map((blog) => <li>{blog && <BlogCard {blog} />}</li>)}
+      {sortedBlogs.map((blog) => <li>{blog && <BlogCard {blog} />}</li>)}
     </ul>
 
     <div class="h-[24px] w-full"></div>
