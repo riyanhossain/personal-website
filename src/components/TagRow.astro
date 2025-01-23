@@ -8,14 +8,16 @@ type Props = {
 const { tags } = Astro.props;
 ---
 
-<div class="flex flex-wrap gap-2">
+<ul class="flex items-center flex-wrap gap-2">
   {
     tags?.map((tag) => (
-      <a href={`/blog/tags/${tag}`} class="block">
-        <div class="text-sm text-semibold py-1 px-1.5 rounded-full border hover:bg-black/80 hover:text-white/80">
-          {tag}
-        </div>
-      </a>
+      <li>
+        <a href={`/blog/tags/${tag}`}>
+          <div class="text-xs sm:text-sm text-semibold py-1 px-1.5 rounded-full border hover:bg-black/80 hover:text-white/80">
+            {tag}
+          </div>
+        </a>
+      </li>
     ))
   }
-</div>
+</ul>

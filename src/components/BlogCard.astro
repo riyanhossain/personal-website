@@ -5,19 +5,17 @@ import TagRow from "@/components/TagRow.astro";
 
 type Props = {
   blog: CollectionEntry<"blog">;
-  tag?: string | null | undefined;
 };
 
 const {
   blog: {
-    data: { title, description, pubDate, tags },
+    data: { title, pubDate, tags },
     slug,
   },
-  tag,
 } = Astro.props;
 ---
 
-<a href=`/blog/${slug}` class="block">
+<a href={`/blog/${slug}`} class="cursor-pointer not-prose">
   <div class="border rounded p-4 bg-white/50 dark:bg-black/50 space-y-4">
     <p class="text-lg font-semibold line-clamp-2">{title}</p>
 
