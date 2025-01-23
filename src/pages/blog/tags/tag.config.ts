@@ -1,6 +1,7 @@
 export const Tags = [
   "Astro",
   "React",
+  "Vue",
   "JavaScript",
   "TypeScript",
   undefined,

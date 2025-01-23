@@ -10,7 +10,7 @@ export default function ModeSwitcher() {
     if (["true", "false"].includes(localStorageTheme)) {
       return JSON.parse(localStorageTheme);
     }
-    if (window.matchMedia("(prefers-color-scheme: reduce)").matches) {
+    if (window.matchMedia("(prefers-color-scheme: prefers)").matches) {
       return true;
     }
     return false;

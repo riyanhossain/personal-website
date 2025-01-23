@@ -37,7 +37,7 @@ const {
   <meta name="generator" content={Astro.generator} />
 
   <!-- Font preloads -->
-  <link
+  <!-- <link
     rel="preload"
     href="/fonts/BerkeleyMonoVariable-Regular.woff2"
     as="font"
@@ -50,7 +50,7 @@ const {
     as="font"
     type="font/woff2"
     crossorigin="anonymous"
-  />
+  /> -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -91,11 +91,12 @@ const {
   <Analytics />
 
   <body
-    class={`font-lexend antialiased text-black dark:text-white transition-colors duration-500 bg-white dark:bg-black min-h-screen font-normal  ${cn(
+    class={`font-lexend antialiased text-black dark:text-white transition-colors duration-500 bg-white dark:bg-black min-h-screen font-normal relative ${cn(
       className,
     )}`}
   >
-    <Background client:load>
+    <Background client:only />
+    <div>
       <Navigation client:load />
       <div transition:name="Header">
         <Header client:load />
@@ -103,7 +104,7 @@ const {
       <main class="w-full max-w-2xl mx-auto px-5 lg:px-6 flex-grow z-10">
         <slot />
       </main>
-      <Footer />
-    </Background>
+    </div>
+    <Footer />
   </body>
 </html>

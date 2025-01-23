@@ -3,12 +3,12 @@ import { type Page } from "@/types";
 export const Pages: Page[] = [
   {
     params: {
-      slug: "my-first-blog-2",
+      slug: "understanding-javascript-promises",
     },
   },
   {
     params: {
-      slug: "my-first-blog-b",
+      slug: "vue-vs-react-key-differences",
     },
   },
   {
