@@ -1,7 +1,10 @@
 ---
 const today = new Date();
+import { Rss } from "lucide-react";
 ---
 
 <footer class="text-center py-6 z-50">
-  &copy; {today.getFullYear()} Riyan Hossain
+  &copy; {today.getFullYear()} Riyan Hossain <a href="/rss.xml">
+    <Rss client:load className="inline-block w-4 h-4 ml-2" /></a
+  >
 </footer>
