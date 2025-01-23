@@ -1,3 +1,7 @@
-
-
-export const Tags = ["personal", "Code", "JavaScript", "TypeScript"] as string[];
+export const Tags = [
+  "Astro",
+  "React",
+  "JavaScript",
+  "TypeScript",
+  undefined,
+] as string[];

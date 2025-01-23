@@ -3,7 +3,7 @@ title: "My Journey Building My First Personal Website"
 description: "At last im able to develop my personal site"
 pubDate: "23 Jan 2025"
 updatedDate: "23 Jan 2025"
-tags: ["Astro", "Code"]
+tags: ["Astro", "React"]
 ---
 
 Creating my first personal website was an exciting and fulfilling experience. I combined several modern web technologies to craft a site that reflects my skills and creativity. In this blog, I’ll walk you through the process, the tech stack I used, and the challenges I overcame.
