@@ -3,6 +3,11 @@ import { type Page } from "@/types";
 export const Pages: Page[] = [
   {
     params: {
+      slug: "an-introduction-to-typescript",
+    },
+  },
+  {
+    params: {
       slug: "understanding-javascript-promises",
     },
   },
