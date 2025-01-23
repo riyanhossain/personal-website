@@ -2,14 +2,16 @@
 const today = new Date();
 ---
 
-<footer
-  class="flex items-center justify-between py-6 z-50 max-w-2xl w-full mx-auto px-5 lg:px-6"
->
-  <p>&copy; {today.getFullYear()} Riyan Hossain</p>
-  <div class="flex items-center gap-x-4">
-    <a href="/rss.xml" class="underline-offset-2 hover:underline"> RSS </a>
-    <a href="/sitemap-0.xml" class="underline-offset-2 hover:underline"
-      >Sitemap</a
-    >
+<footer class="py-6 z-50 max-w-2xl w-full mx-auto px-5 lg:px-6">
+  <hr />
+  <div class="h-6"></div>
+  <div class="flex items-center justify-between">
+    <p>&copy; {today.getFullYear()} Riyan Hossain</p>
+    <div class="flex items-center gap-x-4">
+      <a href="/rss.xml" class="underline-offset-2 hover:underline"> RSS </a>
+      <a href="/sitemap-0.xml" class="underline-offset-2 hover:underline"
+        >Sitemap</a
+      >
+    </div>
   </div>
 </footer>

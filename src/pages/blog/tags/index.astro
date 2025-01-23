@@ -21,7 +21,10 @@ const tags = Tags.map((tag) => ({
           (tag) =>
             tag.count > 0 && (
               <li>
-                <a href={`/blog/tags/${tag.tag}`} class=" hover:underline">
+                <a
+                  href={`/blog/tags/${tag.tag}`}
+                  class="hover:underline underline-offset-2"
+                >
                   {tag.tag}
                   {tag.count ? ` (${tag.count})` : ""}
                 </a>

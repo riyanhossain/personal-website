@@ -1,4 +1,3 @@
-
 export const SITE_TITLE = "Riyan Hossain";
 export const SITE_DESCRIPTION = "Personal website of Riyan Hossain";
 export const TWITTER_LINK = "https://x.com/mehraabriyan";
@@ -47,7 +46,6 @@ export const JS_KEYWORDS = [
   "await",
 ];
 
-
 export const HearderItems = [
   {
     title: "Projects",
@@ -66,4 +64,3 @@ export const HearderItems = [
     link: "/contact",
   },
 ];
-

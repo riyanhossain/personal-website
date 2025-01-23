@@ -91,17 +91,17 @@ const {
   <Analytics />
 
   <body
-    class={`font-lexend antialiased text-black dark:text-white transition-colors duration-500 bg-white dark:bg-black min-h-screen font-normal relative ${cn(
+    class={`font-lexend antialiased text-black dark:text-white transition-colors duration-500 bg-white dark:bg-black min-h-screen font-normal relative flex flex-col ${cn(
       className,
     )}`}
   >
     <Background client:only />
-    <div>
+    <div class="flex-grow">
       <Navigation client:load />
       <div transition:name="Header">
         <Header client:load />
       </div>
-      <main class="w-full max-w-2xl mx-auto px-5 lg:px-6 flex-grow z-10">
+      <main class="w-full max-w-2xl mx-auto px-5 lg:px-6 z-10">
         <slot />
       </main>
     </div>
