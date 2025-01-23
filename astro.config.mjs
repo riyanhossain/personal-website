@@ -17,11 +17,12 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 import icon from "astro-icon";
 
+// Add Vercel adapter for dynamic routes
 // import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://riyan-one.vercel.app/",
+  site: "https://riyan-one.vercel.app",
 
   markdown: {
     remarkPlugins: [remarkToc],
@@ -53,7 +54,7 @@ export default defineConfig({
     }),
   ],
 
-  output: "static",
+  // output: "static",
   // adapter: vercel({
   //   webAnalytics: {
   //     enabled: true,
