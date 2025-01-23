@@ -8,6 +8,6 @@ type Props = {
 const { className = "" } = Astro.props;
 ---
 
-<div class=`prose dark:prose-invert ${cn(className)}`>
+<article class=`prose dark:prose-invert ${cn(className)}`>
   <slot />
-</div>
+</article>

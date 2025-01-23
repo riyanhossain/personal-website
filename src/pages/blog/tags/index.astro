@@ -17,14 +17,17 @@ const tags = Tags.map((tag) => ({
   <Main title="Blog - Tags">
     <ul class="flex flex-wrap gap-4">
       {
-        tags.map((tag) => (
-          <li>
-            <a href={`/blog/tags/${tag.tag}`} class=" hover:underline">
-              {tag.tag}
-              {tag.count ? ` (${tag.count})` : ""}
-            </a>
-          </li>
-        ))
+        tags.map(
+          (tag) =>
+            tag.count > 0 && (
+              <li>
+                <a href={`/blog/tags/${tag.tag}`} class=" hover:underline">
+                  {tag.tag}
+                  {tag.count ? ` (${tag.count})` : ""}
+                </a>
+              </li>
+            ),
+        )
       }
     </ul>
   </Main>

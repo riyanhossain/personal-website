@@ -1,3 +1,3 @@
 
 
-export const Tags = ["personal", "Code", undefined] as string[];
+export const Tags = ["personal", "Code", "JavaScript", "TypeScript"] as string[];

@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import { type CollectionEntry } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 import TagRow from "@/components/TagRow.astro";
+import Prose from "@/components/Prose.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -30,7 +31,7 @@ const { title, description, pubDate, updatedDate, tags } = Astro.props;
   <div class="h-6"></div>
   <hr />
   <div class="h-6"></div>
-  <article class="prose text-black dark:text-white">
+  <Prose>
     <slot />
-  </article>
+  </Prose>
 </Layout>
