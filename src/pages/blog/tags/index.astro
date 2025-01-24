@@ -9,9 +9,14 @@ export const prerender = true;
 const blogs = await getCollection("blog");
 
 // return a object array with the tag and the number of blogs with that tag
-const tags = Tags.map((tag) => ({
+
+const allTags = blogs
+  .map((blog) => blog.data.tags)
+  .flat()
+  .filter((tag) => tag);
+const tags = allTags.map((tag) => ({
   tag,
-  count: blogs.filter((blog) => blog.data.tags?.includes(tag)).length,
+  count: blogs.filter((blog) => blog.data.tags?.includes(tag as string)).length,
 }));
 ---
 

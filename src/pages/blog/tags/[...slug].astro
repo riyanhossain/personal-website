@@ -1,22 +1,36 @@
 ---
-// import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths } from "astro";
 // import { Tags } from "@/pages/blog/tags/tag.config";
 import Layout from "@/layouts/Layout.astro";
 import BlogList from "@/components/BlogList.astro";
+import { getCollection } from "astro:content";
+
+export const prerender = true;
 
 const { slug } = Astro.params;
 
 if (!slug) {
   return Astro.redirect("/blog/tags");
 }
-// CAUTION: only use this for static pages generation
-// export const getStaticPaths = (() => {
-//   return Tags.map((tag) => ({
-//     params: {
-//       slug: tag,
-//     },
-//   }));
-// }) satisfies GetStaticPaths;
+
+export const getStaticPaths = (async () => {
+  const blogs = await getCollection("blog");
+
+  const tags = Array.from(
+    new Set(
+      blogs
+        .map((blog) => blog.data.tags)
+        .flat()
+        .filter((tag) => tag),
+    ),
+  );
+
+  return tags.map((tag) => ({
+    params: {
+      slug: tag,
+    },
+  }));
+}) satisfies GetStaticPaths;
 ---
 
 <Layout title={`Tag: ${slug}`}>
