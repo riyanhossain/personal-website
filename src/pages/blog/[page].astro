@@ -5,6 +5,8 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import { getEntry } from "astro:content";
 
+export const prerender = false;
+
 export const getStaticPaths = (async ({ paginate }) => {
   const pages = await getCollection("blog");
 
