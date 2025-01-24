@@ -1,13 +1,33 @@
 ---
 import ProjectCard from "@/components/ProjectCard.astro";
 import { Projects } from "@/config";
+import TechStackRow from "@/components/TechStackRow.astro";
 ---
 
 <ul class="grid grid-cols-1 gap-4">
   {
     Projects.map((project) => (
       <li>
-        <ProjectCard {...project} />
+        <ProjectCard {...project} server:defer>
+          <div
+            class="border rounded p-4 bg-white/50 dark:bg-black/50 flex flex-col gap-y-4 relative"
+            slot="fallback"
+          >
+            <div class="space-y-4">
+              <p class="text-lg font-semibold line-clamp-2">{project.title}</p>
+
+              <div class="flex items-center justify-between gap-x-2">
+                <p class="text-xs sm:text-sm">{project.description}</p>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                {project.techStacks.map((stack) => (
+                  <TechStackRow {...stack} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </ProjectCard>
       </li>
     ))
   }
