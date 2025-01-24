@@ -2,6 +2,8 @@
 import Layout from "@/layouts/Layout.astro";
 import Main from "@/components/Main.astro";
 import { SITE_TITLE } from "@/constants";
+
+export const prerender = true;
 ---
 
 <Layout title={`Page Not Found | ${SITE_TITLE}`}>

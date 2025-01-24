@@ -4,6 +4,8 @@ import { getCollection } from "astro:content";
 import { Tags } from "@/pages/blog/tags/tag.config";
 import Main from "@/components/Main.astro";
 
+export const prerender = true;
+
 const blogs = await getCollection("blog");
 
 // return a object array with the tag and the number of blogs with that tag

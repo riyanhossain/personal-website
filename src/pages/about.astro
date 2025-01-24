@@ -5,6 +5,8 @@ import { render } from "astro:content";
 import Prose from "@/components/Prose.astro";
 import Main from "@/components/Main.astro";
 
+export const prerender = true;
+
 const md = await getEntry("pages", "about");
 
 if (!md) {
