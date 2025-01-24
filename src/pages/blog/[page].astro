@@ -1,17 +1,19 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
-import { Pages } from "@/content/blog.config";
 import Layout from "@/layouts/Layout.astro";
 import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
 import { getEntry } from "astro:content";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const pages = [
-    ...Pages.map((page) => ({
-      page: page.params.slug,
-    })),
-  ];
-  return paginate(pages);
+  const pages = await getCollection("blog");
+
+  const allPages: {
+    page: string;
+  }[] = pages.map((page) => ({
+    page: page.slug,
+  }));
+  return paginate(allPages);
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
@@ -30,36 +32,34 @@ const sortedBlogs = blogs.sort((a, b) => {
 });
 ---
 
-<div>
-  <Layout title={`Blog`}>
-    <h2 class="text-2xl font-bold" transition:name="main title">Blog</h2>
-    <div class="h-2 w-full"></div>
-    <a href="/blog/tags">See all tags</a>
-    <div class="h-[24px] w-full"></div>
-    <hr />
-    <div class="h-[24px] w-full"></div>
-    <ul class="not-prose grid grid-cols-1 gap-4">
-      {sortedBlogs.map((blog) => <li>{blog && <BlogCard {blog} />}</li>)}
-    </ul>
+<Layout title={`Blog`}>
+  <h2 class="text-2xl font-bold" transition:name="main title">Blog</h2>
+  <div class="h-2 w-full"></div>
+  <a href="/blog/tags">See all tags</a>
+  <div class="h-[24px] w-full"></div>
+  <hr />
+  <div class="h-[24px] w-full"></div>
+  <ul class="not-prose grid grid-cols-1 gap-4">
+    {sortedBlogs.map((blog) => <li>{blog && <BlogCard {blog} />}</li>)}
+  </ul>
 
-    <div class="h-[24px] w-full"></div>
-    <hr />
-    <div class="h-[24px] w-full"></div>
-    <div class="flex justify-between">
-      {
-        page.url.prev ? (
-          <a href={page.url.prev} class="hover:underline underline-offset-2">
-            Previous
-          </a>
-        ) : null
-      }
-      {
-        page.url.next ? (
-          <a href={page.url.next} class="hover:underline underline-offset-2">
-            Next
-          </a>
-        ) : null
-      }
-    </div>
-  </Layout>
-</div>
+  <div class="h-[24px] w-full"></div>
+  {page.url.prev && page.url.next && <hr />}
+  <div class="h-[24px] w-full"></div>
+  <div class="flex justify-between">
+    {
+      page.url.prev ? (
+        <a href={page.url.prev} class="hover:underline underline-offset-2">
+          Previous
+        </a>
+      ) : null
+    }
+    {
+      page.url.next ? (
+        <a href={page.url.next} class="hover:underline underline-offset-2">
+          Next
+        </a>
+      ) : null
+    }
+  </div>
+</Layout>

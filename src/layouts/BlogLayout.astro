@@ -11,27 +11,29 @@ const { title, description, pubDate, updatedDate, tags } = Astro.props;
 ---
 
 <Layout title={`${title} - Blog`} description={description}>
-  <h2 class="text-2xl font-semibold" transition:name={title}>{title}</h2>
-  <div class="h-2"></div>
-  <FormattedDate date={pubDate} />
+  <div>
+    <h2 class="text-2xl font-semibold" transition:name={title}>{title}</h2>
+    <div class="h-2"></div>
+    <FormattedDate date={pubDate} />
 
-  {
-    updatedDate && (
-      <>
-        <div class="h-2" />
-        <div>
-          Last updated:
-          <FormattedDate date={updatedDate} />
-        </div>
-      </>
-    )
-  }
-  <div class="h-2"></div>
-  <TagRow tags={tags} />
-  <div class="h-6"></div>
-  <hr />
-  <div class="h-6"></div>
-  <Prose>
-    <slot />
-  </Prose>
+    {
+      updatedDate && (
+        <>
+          <div class="h-2" />
+          <div>
+            Last updated:
+            <FormattedDate date={updatedDate} />
+          </div>
+        </>
+      )
+    }
+    <div class="h-2"></div>
+    <TagRow tags={tags} />
+    <div class="h-6"></div>
+    <hr />
+    <div class="h-6"></div>
+    <Prose>
+      <slot />
+    </Prose>
+  </div>
 </Layout>

@@ -15,7 +15,7 @@ const {
 } = Astro.props;
 ---
 
-<a href={`/blog/${slug}`} class="cursor-pointer not-prose">
+<a href={`/blog/${slug}`} class="cursor-pointer not-prose" aria-label={title}>
   <div class="border rounded p-4 bg-white/50 dark:bg-black/50 space-y-4">
     <p class="text-lg font-semibold line-clamp-2">{title}</p>
 

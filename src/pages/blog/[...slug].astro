@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import BlogLayout from "@/layouts/BlogLayout.astro";
 import { getEntry, render } from "astro:content";
-import { Pages } from "@/content/blog.config";
+// import { Pages } from "@/content/blog.config";
 
 const { slug } = Astro.params;
 
@@ -18,9 +18,10 @@ if (!blog) {
 
 const { Content } = await render(blog);
 
-export const getStaticPaths = (() => {
-  return Pages;
-}) satisfies GetStaticPaths;
+// CAUTION: only use this for static pages generation
+// export const getStaticPaths = (() => {
+//   return Pages;
+// }) satisfies GetStaticPaths;
 ---
 
 <BlogLayout {...blog.data}>
