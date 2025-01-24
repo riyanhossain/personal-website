@@ -2,7 +2,10 @@
 import type { GetStaticPaths } from "astro";
 import BlogLayout from "@/layouts/BlogLayout.astro";
 import { getEntry, render } from "astro:content";
+import { getCollection } from "astro:content";
 // import { Pages } from "@/content/blog.config";
+
+export const prerender = true;
 
 const { slug } = Astro.params;
 
@@ -18,10 +21,23 @@ if (!blog) {
 
 const { Content } = await render(blog);
 
+const pages = await getCollection("blog");
+
 // CAUTION: only use this for static pages generation
-// export const getStaticPaths = (() => {
-//   return Pages;
-// }) satisfies GetStaticPaths;
+export const getStaticPaths = (async () => {
+  const pages = await getCollection("blog");
+
+  const allPages: {
+    params: {
+      slug: string;
+    };
+  }[] = pages.map((page) => ({
+    params: {
+      slug: page.slug,
+    },
+  }));
+  return allPages;
+}) satisfies GetStaticPaths;
 ---
 
 <BlogLayout {...blog.data}>
