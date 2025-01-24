@@ -86,17 +86,36 @@ const {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-    <!-- Client Router -->
-    <ClientRouter />
-
-    <!-- Vercel Analytics -->
-    <Analytics />
-
     <!-- Google Verification -->
     <meta
       name="google-site-verification"
       content="-n3075BWEk4x15mbPEGnv2i7PEsf_qOJjeh07vys51A"
     />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZLFM1JKG1"
+    ></script>
+    
+    <script>
+      // @ts-ignore typescript
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // @ts-ignore typescript
+        dataLayer.push(arguments);
+      }
+      // @ts-ignore typescript
+      gtag("js", new Date());
+      // @ts-ignore typescript
+      gtag("config", "G-MZLFM1JKG1");
+    </script>
+
+    <meta name="robots" content="index, follow" />
+
+    <!-- Client Router -->
+    <ClientRouter />
+
+    <!-- Vercel Analytics -->
+    <Analytics />
   </head>
 
   <body
