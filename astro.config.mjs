@@ -17,7 +17,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 import icon from "astro-icon";
 
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
@@ -58,6 +58,6 @@ export default defineConfig({
     webAnalytics: {
       enabled: true,
     },
-    maxDuration: 8,
+    maxDuration: 10,
   }),
 });
