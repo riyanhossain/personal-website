@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import { cn } from "@/lib/utils";
 import Navigation from "@/components/Navigation";
 import Background from "@/components/Background";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 // Vercel Analytics
 import Analytics from "@vercel/analytics/astro";
@@ -116,6 +117,9 @@ const {
 
     <!-- Vercel Analytics -->
     <Analytics />
+
+    <!-- Speed Insights -->
+    <SpeedInsights />
   </head>
 
   <body
